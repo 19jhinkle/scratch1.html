@@ -1,0 +1,121 @@
+body {
+    background-color: #d3dee0;
+}
+.id {
+    font:600;
+    font-size: larger;
+    align-items: center;
+}
+.anchor-link{
+    text-decoration: underline; /* Adds underline */
+    margin-bottom: 20px; /* Adds bottom margin */
+    display: inline-block; /* Allows the margin to apply properly */
+}
+#top{
+    text-align: center;
+    
+}
+.brand-name {
+    margin-right: auto; /* Push the dropdown to the right */
+    font-size: 1.2px;    /* Font size for the brand */
+    color: #333;        /* Text color */
+    font-family: 'Roboto', sans-serif; /* Use the selected font */
+}
+h1{
+    margin-left: 25px;
+    font-size: xx-large;
+}
+img {
+    width: 50%;
+    margin-left: 15px;
+}
+.bordered-image {
+    border: 5px solid white; /* A black solid border */
+    border-radius: 10px;    /* Optional: makes the corners rounded */
+    padding: 5px;           /* Optional: space between the image and the border */
+}
+.header-bar {
+    display: flex;               /* Use flexbox for layout */
+    justify-content: flex-end;   /* Align items to the right */
+    align-items: center;        /* Center items vertically */
+    background-color: white;    /* White background */
+    padding: 10px 20px;        /* Padding for the header */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+/* Brand name styling */
+.brand-name {
+    margin-right: auto;  /* Push the dropdown to the right */
+    font-size: 20px;    /* Font size for the brand */
+    color: #333;        /* Dark text color */
+}
+
+.dropdown-menu {
+    position: relative;
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+}
+
+.dropbtn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 150px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown-menu:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-menu:hover .dropbtn {
+    background-color: #555;
+}
+#shells_title {
+    text-align: center;
+}
+.bottom-link {
+    position: bottom; /* Sticks the link in a fixed position */
+    bottom: 20px; /* Adjusts how far from the bottom it sits */
+    left: 50%; /* Centers it horizontally */
+    transform: translateX(-50%); /* Ensures true centering by shifting it left by half its width */
+    text-align: center; /* Centers the text within the link */
+    font-size: 18px; /* Adjust font size as needed */
+    color: rgb(55, 55, 55); /* Link color */
+    text-decoration: underline; /* Adds an underline */
+}
+body{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.my-button {
+    background-color: rgba(59, 101, 133, 0.998);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,14 @@
+header.bg-dark {
+    background-image: url(assests/shells.jpg);
+    background-size: cover;
+    background-position: center;
+}
+type{
+    color: rgba(223, 223, 223, 0.527);
+    font-size: x-large;
+}
+body {
+    background-color: #d3dee0; /* Change to your desired color */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+

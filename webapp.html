@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="scratchstyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shell Trivia Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #question {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .answer {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .answer:hover {
+            background: #e0e0e0;
+        }
+
+        .correct {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .incorrect {
+            background-color: #f44336;
+            color: white;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shell Trivia Quiz</h1>
+        <div id="quiz">
+            <div id="question"></div>
+            <div id="answers"></div>
+            <button id="nextButton" onclick="nextQuestion()">Next Question</button>
+        </div>
+        <div id="scoreContainer" style="display: none;">
+            <h2>Your Score: <span id="score"></span></h2>
+            <button onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+    <script>
+        const questions = [
+            {
+                question: "What is the largest type of shellfish?",
+                answers: [
+                    { text: "Oysters", correct: false },
+                    { text: "Clams", correct: false },
+                    { text: "Giant Squid", correct: true },
+                    { text: "Lobsters", correct: false }
+                ]
+            },
+            {
+                question: "What is the primary material that makes up a shell?",
+                answers: [
+                    { text: "Chitin", correct: false },
+                    { text: "Calcium Carbonate", correct: true },
+                    { text: "Silica", correct: false },
+                    { text: "Keratin", correct: false }
+                ]
+            },
+            {
+                question: "Which of the following is NOT a type of shell?",
+                answers: [
+                    { text: "Conch", correct: false },
+                    { text: "Tortoise", correct: true },
+                    { text: "Whelk", correct: false },
+                    { text: "Cowrie", correct: false }
+                ]
+            },
+            {
+                question: "How many parts does a typical bivalve shell have?",
+                answers: [
+                    { text: "1", correct: false },
+                    { text: "2", correct: true },
+                    { text: "3", correct: false },
+                    { text: "4", correct: false }
+                ]
+            },
+            {
+                question: "What is the purpose of a shell?",
+                answers: [
+                    { text: "Protection", correct: true },
+                    { text: "Attraction", correct: false },
+                    { text: "Camouflage", correct: false },
+                    { text: "Feeding", correct: false }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById("scoreContainer").style.display = "none";
+            document.getElementById("quiz").style.display = "block";
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            resetState();
+            showQuestion(questions[currentQuestionIndex]);
+        }
+
+        function showQuestion(question) {
+            const questionElement = document.getElementById("question");
+            questionElement.innerText = question.question;
+            const answersContainer = document.getElementById("answers");
+            question.answers.forEach(answer => {
+                const button = document.createElement("button");
+                button.innerText = answer.text;
+                button.classList.add("answer");
+                button.addEventListener("click", () => selectAnswer(answer, button));
+                answersContainer.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            const answersContainer = document.getElementById("answers");
+            answersContainer.innerHTML = "";
+            const nextButton = document.getElementById("nextButton");
+            nextButton.style.display = "none";
+        }
+
+        function selectAnswer(answer, button) {
+            const answersContainer = document.getElementById("answers");
+            if (answer.correct) {
+                score++;
+                button.classList.add("correct");
+            } else {
+                button.classList.add("incorrect");
+            }
+            Array.from(answersContainer.children).forEach(button => {
+                if (button.innerText === answer.text) {
+                    button.classList.add(answer.correct ? "correct" : "incorrect");
+                }
+                button.disabled = true; // Disable all buttons after selection
+            });
+            document.getElementById("nextButton").style.display = "block";
+            currentQuestionIndex++;
+            if (currentQuestionIndex >= questions.length) {
+                document.getElementById("quiz").style.display = "none";
+                document.getElementById("scoreContainer").style.display = "block";
+                document.getElementById("score").innerText = score + "/" + questions.length;
+            }
+        }
+
+        function restartQuiz() {
+            startQuiz();
+        }
+
+        window.onload = startQuiz;
+    </script>
+    <a href="scratch.html" class="bottom-link">About Me</a>
+
+</body>
+</html>
